@@ -90,4 +90,36 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   }
   setClock(".timer", finishSalesDay)
+
+  //modal
+
+  const contactUs = document.querySelectorAll("[data-modal]")
+  const closeModal = document.querySelector("[data-close]")
+  const modalContent = document.querySelector(".modal")
+
+  contactUs.forEach((el) => {
+    el.addEventListener("click", () => {
+      modalContent.classList.toggle("show")
+      document.body.style.overflow = "hidden"
+    })
+  })
+
+  function closeModalFunction() {
+    modalContent.classList.toggle("show")
+    document.body.style.overflow = "hidden"
+  }
+
+  closeModal.addEventListener("click", closeModalFunction)
+
+  modalContent.addEventListener("click", (e) => {
+    if (e.target === modalContent) {
+      closeModalFunction()
+    }
+  })
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Escape") {
+      closeModalFunction()
+    }
+  })
 })
