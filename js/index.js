@@ -176,7 +176,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  const divRender = new menuCart(
+  new menuCart(
     "img/tabs/vegy.jpg",
     "vegy",
     `Меню "Фитнес"`,
@@ -187,8 +187,9 @@ window.addEventListener("DOMContentLoaded", function () {
 	`,
     9,
     `.menu .container`
-  )
-  const divRender2 = new menuCart(
+  ).render()
+
+  new menuCart(
     "img/tabs/elite.jpg",
     "elite",
     `Меню “Премиум”`,
@@ -199,9 +200,9 @@ window.addEventListener("DOMContentLoaded", function () {
 	`,
     11,
     `.menu .container`
-  )
+  ).render()
 
-  const divRender3 = new menuCart(
+  new menuCart(
     "img/tabs/post.jpg",
     "post",
     `Меню "Постное"`,
@@ -213,9 +214,5 @@ window.addEventListener("DOMContentLoaded", function () {
 	`,
     12,
     `.menu .container`
-  )
-
-  divRender.render()
-  divRender2.render()
-  divRender3.render()
+  ).render()
 })
