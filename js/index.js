@@ -39,7 +39,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // Timer
 
-  const deadline = "2022-06-11"
+  const deadline = "2023-06-11"
 
   function getTimeRemaining(endtime) {
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -140,4 +140,82 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
   window.addEventListener("scroll", showModalByScroll)
+
+  // использование картосчек на классах
+
+  class menuCart {
+    constructor(src, alt, title, description, price, classCard) {
+      this.src = src
+      this.alt = alt
+      this.title = title
+      this.description = description
+      this.price = price
+      this.classCard = document.querySelector(classCard)
+      this.exchangeRates = 35
+      this.converter()
+    }
+
+    converter() {
+      this.price = this.price * this.exchangeRates
+    }
+    render() {
+      const element = document.createElement("div")
+      element.innerHTML = `
+				<div class="menu__item">
+					<img src=${this.src} alt=${this.alt} />
+					<h3 class="menu__item-subtitle">${this.title}</h3>
+					<div class="menu__item-descr">${this.description}</div>
+					<div class="menu__item-divider"></div>
+					<div class="menu__item-price">
+						<div class="menu__item-cost">Цена:</div>
+						<div class="menu__item-total"><span>${this.price}</span> 🪙/день</div>
+					</div>
+				</div>
+			`
+      this.classCard.append(element)
+    }
+  }
+
+  const divRender = new menuCart(
+    "img/tabs/vegy.jpg",
+    "vegy",
+    `Меню "Фитнес"`,
+    `
+		Меню &laquo;Фитнес&raquo;&nbsp;&mdash; это новый подход к&nbsp;приготовлению блюд:
+		больше свежих овощей и&nbsp;фруктов. Продукт активных и&nbsp;здоровых людей. Это
+		абсолютно новый продукт с&nbsp;оптимальной ценой и высоким качеством!
+	`,
+    9,
+    `.menu .container`
+  )
+  const divRender2 = new menuCart(
+    "img/tabs/elite.jpg",
+    "elite",
+    `Меню “Премиум”`,
+    `
+		В&nbsp;меню &laquo;Премиум&raquo; мы&nbsp;используем не&nbsp;только красивый дизайн
+    упаковки, но&nbsp;и&nbsp;качественное исполнение блюд. Красная рыба, морепродукты,
+    фрукты&nbsp;&mdash; ресторанное меню без похода в ресторан!
+	`,
+    11,
+    `.menu .container`
+  )
+
+  const divRender3 = new menuCart(
+    "img/tabs/post.jpg",
+    "post",
+    `Меню "Постное"`,
+    `
+		Меню &laquo;Постное&raquo;&nbsp;&mdash; это тщательный подбор ингредиентов: полное
+		отсутствие продуктов животного происхождения, молоко из&nbsp;миндаля, овса, кокоса или
+		гречки, правильное количество белков за&nbsp;счет тофу и&nbsp;импортных вегетарианских
+		стейков.
+	`,
+    12,
+    `.menu .container`
+  )
+
+  divRender.render()
+  divRender2.render()
+  divRender3.render()
 })
