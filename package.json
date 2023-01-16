@@ -1,0 +1,23 @@
+{
+  "name": "food_dist",
+  "version": "1.0.0",
+  "description": "food ordering and delivery app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YPetrik/Food_dist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YPetrik/Food_dist/issues"
+  },
+  "homepage": "https://github.com/YPetrik/Food_dist#readme",
+  "devDependencies": {
+    "json-server": "^0.17.1"
+  }
+}

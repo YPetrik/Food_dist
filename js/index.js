@@ -284,4 +284,8 @@ window.addEventListener("DOMContentLoaded", function () {
       closeModal()
     }, 4000)
   }
+
+  fetch("/db.json")
+    .then((respons) => respons.json())
+    .then((res) => console.log(res))
 })
